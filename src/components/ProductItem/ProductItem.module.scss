@@ -1,0 +1,33 @@
+.product {
+  @apply flex flex-col;
+}
+
+.title {
+  @apply mt-4 mb-5 text-lg text-gray-900;
+
+  min-height: 56px;
+}
+
+.description {
+  @apply mt-auto mb-4 text-sm text-gray-500 flex-grow;
+}
+
+.imageWrapper {
+  @apply w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8;
+}
+
+.footer {
+  @apply mt-auto;
+}
+
+.image {
+  @apply w-full h-full object-center object-cover group-hover:opacity-75;
+}
+
+.price {
+  @apply text-lg font-medium text-gray-900;
+}
+
+.button {
+  @apply relative w-full flex justify-center mt-4 py-2 px-4 border text-sm font-medium rounded-md text-white bg-slate-400 hover:bg-slate-500;
+}
