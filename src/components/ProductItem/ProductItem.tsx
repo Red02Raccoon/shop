@@ -6,6 +6,8 @@ interface IProps {
   image: string;
   price: number;
   description: string;
+  isAdded: boolean;
+  onProductAdd: () => void;
 }
 
 const ProductItem: React.FC<IProps> = ({
@@ -13,6 +15,8 @@ const ProductItem: React.FC<IProps> = ({
   title,
   description,
   price,
+  isAdded,
+  onProductAdd,
 }) => {
   return (
     <div className={styles.product}>
@@ -26,8 +30,8 @@ const ProductItem: React.FC<IProps> = ({
       <div className={styles.footer}>
         <p className={styles.price}>${price}</p>
 
-        <button type="submit" className={styles.button}>
-          Add to Cart
+        <button type="submit" className={styles.button} onClick={onProductAdd}>
+          {isAdded ? "In Cart" : "Add to Cart"}
         </button>
       </div>
     </div>
