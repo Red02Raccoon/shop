@@ -1,7 +1,6 @@
 import React from "react";
 
 import { IProductItem } from "../../common/types";
-import styles from "./CartItem.module.scss";
 
 const CartItem: React.FC<IProductItem> = ({ id, title, image, price }) => {
   return (
@@ -24,7 +23,7 @@ const CartItem: React.FC<IProductItem> = ({ id, title, image, price }) => {
           </div>
         </div>
         <div className="flex flex-1 items-end justify-between text-sm">
-          <p className="text-gray-500">Qty 12</p>
+          <p className="text-gray-500">Qty 1</p>
 
           <div className="flex">
             <button
