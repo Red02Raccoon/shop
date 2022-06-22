@@ -22,4 +22,30 @@ describe("CartItem", () => {
     const button3 = screen.getByTestId("remove-button");
     expect(button3).toBeVisible();
   });
+
+  it("should match the snapshot", () => {
+    const props = {
+      id: 12,
+      title: "test",
+      image: "/test/img-1.png",
+      price: 12,
+    };
+    const { asFragment } = render(<CartItem {...props} />);
+
+    expect(asFragment(<CartItem {...props} />)).toMatchSnapshot();
+  });
+
+  it("should", () => {
+    const props = {
+      id: 12,
+      title: "test",
+      image: "/test/img-1.png",
+      price: 12,
+    };
+    const { container, getByTestId } = render(<CartItem {...props} />);
+
+    console.log(container.firstChild);
+
+    expect(getByTestId("remove-button")).toBeInTheDocument();
+  });
 });
