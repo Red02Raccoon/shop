@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
 import { IProductItem } from "./common/types";
-import { ProductItem, Header, CartItem } from "./components";
+import { ProductItem, Header, CartDrawer } from "./components";
 
 const App = () => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [products, setProducts] = useState<IProductItem[]>([]);
   const [selectedProductsIds, setSelectedProductsIds] = useState<number[]>([]);
 
@@ -29,21 +30,18 @@ const App = () => {
     setSelectedProductsIds(newData);
   };
 
+  const handleDrawerToggle = () => {
+    setIsDrawerOpen((prev) => !prev);
+  };
+
   return (
     <div className="bg-white">
-      <Header count={selectedProductsIds.length} />
+      <Header
+        count={selectedProductsIds.length}
+        onCartOpen={handleDrawerToggle}
+      />
 
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-20 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="cart flow-root">
-          <div className="divide-y divide-gray-200">
-            {products
-              .filter(({ id }) => selectedProductsIds.includes(id))
-              .map((product) => (
-                <CartItem key={product.id} {...product} />
-              ))}
-          </div>
-        </div>
-
         <h2 className="mb-10 text-2xl">Products</h2>
 
         <div className="grid grid-cols-1 gap-y-20 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
@@ -60,6 +58,14 @@ const App = () => {
             />
           ))}
         </div>
+
+        <CartDrawer
+          isOpen={isDrawerOpen}
+          products={products.filter(({ id }) =>
+            selectedProductsIds.includes(id)
+          )}
+          onClose={handleDrawerToggle}
+        />
       </div>
     </div>
   );
