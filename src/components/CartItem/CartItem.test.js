@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import CartItem from "./CartItem";
 
+//NOTE: learn different assertions and selectors
 describe("CartItem", () => {
   it("should display remove button", () => {
     const props = {
@@ -13,7 +14,12 @@ describe("CartItem", () => {
     render(<CartItem {...props} />);
 
     const button = screen.getByRole("button", { name: "Remove" });
-
     expect(button).toBeInTheDocument();
+
+    const button2 = screen.getByRole("button");
+    expect(button2).toHaveTextContent("Remove");
+
+    const button3 = screen.getByTestId("remove-button");
+    expect(button3).toBeVisible();
   });
 });

@@ -30,6 +30,7 @@ const CartItem: React.FC<IProductItem> = ({ id, title, image, price }) => {
             <button
               type="button"
               className="font-medium text-indigo-600 hover:text-indigo-500"
+              data-testid="remove-button"
             >
               Remove
             </button>
