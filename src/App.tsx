@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { IProductItem } from "./common/types";
-import { ProductItem, Header, CartDrawer } from "./components";
+import { IProductItem } from "common/types";
+import { ProductItem, Header, CartDrawer } from "components";
 
 const App = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
