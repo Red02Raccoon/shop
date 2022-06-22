@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import ProductItem from "./ProductItem";
 
@@ -33,5 +34,24 @@ describe("ProductItem", () => {
     fireEvent.click(button);
 
     expect(props.onProductAdd).toHaveBeenCalledTimes(1);
+  });
+
+  it("should handle onClick - 2", () => {
+    render(<ProductItem {...props} />);
+
+    const button = screen.getByRole("button");
+    userEvent.click(button);
+
+    expect(props.onProductAdd).toHaveBeenCalledTimes(1);
+  });
+
+  it("should set focus on button", () => {
+    render(<ProductItem {...props} />);
+
+    expect(screen.getByRole("button")).not.toHaveFocus();
+
+    userEvent.tab();
+
+    expect(screen.getByRole("button")).toHaveFocus();
   });
 });
