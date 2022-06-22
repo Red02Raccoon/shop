@@ -25,12 +25,16 @@ const ProductItem: React.FC<IProps> = ({
       </div>
 
       <h3 className={styles.title}>{title}</h3>
-      <h3 className={styles.description}>{description}</h3>
+      <p className={styles.description}>{description}</p>
 
       <div className={styles.footer}>
         <p className={styles.price}>${price}</p>
 
-        <button type="submit" className={styles.button} onClick={onProductAdd}>
+        <button
+          type="submit"
+          className={isAdded ? styles.buttonActive : styles.button}
+          onClick={onProductAdd}
+        >
           {isAdded ? "In Cart" : "Add to Cart"}
         </button>
       </div>
