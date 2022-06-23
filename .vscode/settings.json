@@ -1,13 +1,13 @@
 {
-  "todohighlight.keywords": [
-    "DEBUG:",
-    "REVIEW:",
-    "FIXME:",
-    {
-      "text": "NOTE:",
-      "color": "white",
-      "backgroundColor": "#6cb000",
-      "isWholeLine": false
-    }
-  ]
+    "todohighlight.keywords": [
+        "DEBUG:",
+        "REVIEW:",
+        "FIXME:",
+        {
+            "text": "NOTE:",
+            "color": "white",
+            "backgroundColor": "#6cb000",
+            "isWholeLine": false
+        }
+    ]
 }
