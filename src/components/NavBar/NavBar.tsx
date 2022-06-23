@@ -23,7 +23,7 @@ const NavBar = () => {
                     style={({ isActive }) => {
                         return {
                             display: 'block',
-                            margin: '1rem',
+                            margin: '0 1rem',
                             color: isActive ? 'red' : '',
                         };
                     }}
