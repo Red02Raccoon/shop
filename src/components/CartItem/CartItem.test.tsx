@@ -4,13 +4,15 @@ import CartItem from './CartItem';
 
 //NOTE: learn different assertions and selectors
 describe('CartItem', () => {
+    const props = {
+        id: 12,
+        title: 'test',
+        description: 'test-description',
+        image: '/test/img-1.png',
+        price: 12,
+    };
+
     it('should display remove button', () => {
-        const props = {
-            id: 12,
-            title: 'test',
-            image: '/test/img-1.png',
-            price: 12,
-        };
         render(<CartItem {...props} />);
 
         const button = screen.getByRole('button', { name: 'Remove' });
@@ -24,28 +26,16 @@ describe('CartItem', () => {
     });
 
     it('should match the snapshot', () => {
-        const props = {
-            id: 12,
-            title: 'test',
-            image: '/test/img-1.png',
-            price: 12,
-        };
         const { asFragment } = render(<CartItem {...props} />);
 
-        expect(asFragment(<CartItem {...props} />)).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
     });
 
     it('should', () => {
-        const props = {
-            id: 12,
-            title: 'test',
-            image: '/test/img-1.png',
-            price: 12,
-        };
-        const { container, getByTestId } = render(<CartItem {...props} />);
+        const { container } = render(<CartItem {...props} />);
 
-        console.log(container.firstChild);
+        // console.log(container.firstChild);
 
-        expect(getByTestId('remove-button')).toBeInTheDocument();
+        expect(screen.getByTestId('remove-button')).toBeInTheDocument();
     });
 });
