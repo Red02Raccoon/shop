@@ -7,7 +7,7 @@ import userEvent from '@testing-library/user-event';
 
 import Header from './Header';
 
-function renderWithRouter(component: ReactNode) {
+const renderWithRouter = (component: ReactNode) => {
     const history = createMemoryHistory();
 
     return {
@@ -16,10 +16,9 @@ function renderWithRouter(component: ReactNode) {
                 {component}
             </Router>
         ),
-
         history,
     };
-}
+};
 
 describe('<Header/>', () => {
     it('should display correct logo text', () => {
