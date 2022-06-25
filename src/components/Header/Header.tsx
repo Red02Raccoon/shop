@@ -12,7 +12,9 @@ const Header = () => {
 
     return (
         <div className={styles.header}>
-            <div onClick={handleLogoClick}>Header</div>
+            <div className="logo" data-testid="logo" onClick={handleLogoClick}>
+                Header
+            </div>
 
             <NavBar />
         </div>
