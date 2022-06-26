@@ -8,6 +8,7 @@ interface IProps {
     onCartOpen: () => void;
 }
 
+/*istanbul ignore file */
 const CartButton: React.FC<IProps> = ({ count, onCartOpen }) => {
     return (
         <Badge count={count}>
