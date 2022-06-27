@@ -1,11 +1,8 @@
+import { IProductItem } from 'common';
+
 import styles from './ProductItem.module.scss';
 
-interface IProps {
-    id: number;
-    title: string;
-    image: string;
-    price: number;
-    description: string;
+interface IProps extends IProductItem {
     isAdded: boolean;
     onProductAdd: () => void;
 }
