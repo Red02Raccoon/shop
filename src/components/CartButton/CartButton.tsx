@@ -6,11 +6,11 @@ import styles from './CartButton.module.scss';
 const warnCount = 10;
 
 interface Props {
-    count: number;
+    count?: number;
     onCartOpen: () => void;
 }
 
-const CartButton: React.FC<Props> = ({ count, onCartOpen }) => (
+const CartButton: React.FC<Props> = ({ count = 0, onCartOpen }) => (
     <Badge count={count} data-testid="cart-count">
         <Button
             className={count > warnCount ? styles.buttonActive : styles.button}
