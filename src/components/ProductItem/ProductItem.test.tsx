@@ -3,11 +3,12 @@ import userEvent from '@testing-library/user-event';
 
 import ProductItem from './ProductItem';
 
-describe('ProductItem', () => {
+describe('<ProductItem />', () => {
     const props = {
         id: 12,
         title: 'test',
         image: '/test/img-1.png',
+        description: 'some-description',
         price: 12,
         isAdded: false,
         onProductAdd: jest.fn(),
