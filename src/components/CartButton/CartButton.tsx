@@ -5,24 +5,21 @@ import styles from './CartButton.module.scss';
 
 const warnCount = 10;
 
-interface IProps {
+interface Props {
     count: number;
     onCartOpen: () => void;
 }
 
-/*istanbul ignore file */
-const CartButton: React.FC<IProps> = ({ count, onCartOpen }) => {
-    return (
-        <Badge count={count}>
-            <Button
-                className={count > warnCount ? styles.buttonActive : styles.button}
-                type="primary"
-                icon={<ShoppingCartOutlined />}
-                size={'large'}
-                onClick={onCartOpen}
-            />
-        </Badge>
-    );
-};
+const CartButton: React.FC<Props> = ({ count, onCartOpen }) => (
+    <Badge count={count} data-testid="cart-count">
+        <Button
+            className={count > warnCount ? styles.buttonActive : styles.button}
+            type="primary"
+            icon={<ShoppingCartOutlined />}
+            size={'large'}
+            onClick={onCartOpen}
+        />
+    </Badge>
+);
 
 export default CartButton;
