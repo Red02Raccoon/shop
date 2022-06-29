@@ -3,6 +3,8 @@ import { ShoppingCartOutlined } from '@ant-design/icons';
 
 import styles from './CartButton.module.scss';
 
+const warnCount = 10;
+
 interface IProps {
     count: number;
     onCartOpen: () => void;
@@ -13,7 +15,7 @@ const CartButton: React.FC<IProps> = ({ count, onCartOpen }) => {
     return (
         <Badge count={count}>
             <Button
-                className={styles.button}
+                className={count > warnCount ? styles.buttonActive : styles.button}
                 type="primary"
                 icon={<ShoppingCartOutlined />}
                 size={'large'}
