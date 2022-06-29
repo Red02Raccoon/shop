@@ -43,12 +43,16 @@ const Shop = () => {
         setIsDrawerOpen((prev) => !prev);
     };
 
+    const getSelectedProductsCount = () => {
+        return selectedProductsIds?.length;
+    };
+
     return (
         <div>
             <div className="flex flex-row">
                 <h2 className="mb-10 text-2xl mr-auto">Products</h2>
 
-                <CartButton count={selectedProductsIds.length} onCartOpen={handleDrawerToggle} />
+                <CartButton count={getSelectedProductsCount()} onCartOpen={handleDrawerToggle} />
             </div>
 
             <Spin spinning={isLoading}>
