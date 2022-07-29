@@ -1,16 +1,42 @@
-import { Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
-import { Header } from 'components';
+import { PageNotFound, Shop, Home } from 'pages';
+import { I18nProvider } from 'components';
+
+const locale = 'en';
 
 const App = () => {
     return (
-        <div className="bg-white">
-            <Header />
+        <I18nProvider locale={locale}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />}>
+                        <Route
+                            index
+                            element={
+                                <main style={{ padding: '1rem' }}>
+                                    <p>
+                                        <FormattedMessage id="tr_selectPage" />
+                                    </p>
 
-            <div className="max-w-2xl mx-auto py-16 px-4 sm:py-20 sm:px-6 lg:max-w-7xl lg:px-8">
-                <Outlet />
-            </div>
-        </div>
+                                    <FormattedMessage
+                                        id="tr_myMessage"
+                                        values={{ ts: Date.now() }}
+                                    />
+
+                                    <p>
+                                        <FormattedMessage id="tr_description" />
+                                    </p>
+                                </main>
+                            }
+                        />
+                        <Route path="/shop" element={<Shop />} />
+                    </Route>
+                    <Route path="*" element={<PageNotFound />} />
+                </Routes>
+            </BrowserRouter>
+        </I18nProvider>
     );
 };
 
