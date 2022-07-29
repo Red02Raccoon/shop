@@ -1,22 +1,25 @@
 import { NavLink } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 const navConfig = [
     {
         id: 'shop',
         title: 'Shop',
+        translation: 'tr_shop',
         link: '/shop',
     },
     {
         id: 'test',
         title: 'Test',
+        translation: 'tr_test',
         link: '/test',
     },
 ];
 
 const NavBar = () => {
     return (
-        <nav className="flex justify-between">
-            {navConfig.map(({ link, title }) => (
+        <nav className="flex justify-between items-center">
+            {navConfig.map(({ link, title, translation }) => (
                 <NavLink
                     key={title}
                     to={link}
@@ -28,7 +31,7 @@ const NavBar = () => {
                         };
                     }}
                 >
-                    {title}
+                    <FormattedMessage id={translation} />
                 </NavLink>
             ))}
         </nav>
