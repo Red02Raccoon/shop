@@ -4,9 +4,13 @@ import { FormattedMessage } from 'react-intl';
 import { NavBar } from '../NavBar';
 import { LanguageToggle } from '../LanguageToggle';
 
-import styles from './Header.module.scss';
+import customStyles from './Header.module.scss';
 
-const Header = () => {
+interface Props {
+    styles?: React.CSSProperties;
+}
+
+const Header: React.FC<Props> = ({ styles }) => {
     const navigate = useNavigate();
 
     const handleLogoClick = () => {
@@ -14,8 +18,8 @@ const Header = () => {
     };
 
     return (
-        <div className={styles.header}>
-            <div className="logo" data-testid="logo" onClick={handleLogoClick}>
+        <div className={customStyles.header} style={styles}>
+            <div className="logo items-center" data-testid="logo" onClick={handleLogoClick}>
                 <FormattedMessage id="tr_logo" />
             </div>
 

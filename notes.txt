@@ -9,3 +9,12 @@
 3. https://prettier.io/docs/en/install.html
 
 4. https://reactrouter.com/docs/en/v6
+
+
+// React + ts
+
+- children -> React.ReactNode
+- styles - React.CSSProperties
+- useEffect(() => void)
+- input -> ChangeEvent<HTMLInputElement>
+- form -> FormEvent<HTMLFormElement>
