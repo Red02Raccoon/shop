@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
+import { Category } from 'common';
 import CartItem from './CartItem';
 
 //NOTE: learn different assertions and selectors
@@ -10,6 +11,7 @@ describe('CartItem', () => {
         description: 'test-description',
         image: '/test/img-1.png',
         price: 12,
+        category: Category.men,
     };
 
     it('should display remove button', () => {

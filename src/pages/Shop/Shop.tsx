@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 
 import { Spin } from 'antd';
 
-import { ProductItem, CartDrawer, CartButton } from 'components';
-import { IProductItem } from 'common/types';
+import { ProductItem, CartDrawer, CartButton, Filter } from 'components';
+import { IProductItem, categories, Category } from 'common';
+import { FormattedMessage } from 'react-intl';
 
 const Shop = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [products, setProducts] = useState<IProductItem[]>([]);
+    const [filteredProducts, setFilteredProducts] = useState<IProductItem[]>([]);
 
     const [selectedProductsIds, setSelectedProductsIds] = useState<number[]>([]);
 
@@ -20,6 +22,7 @@ const Shop = () => {
             .then((json) => {
                 console.log(json);
                 setProducts(json);
+                setFilteredProducts(json);
             })
             .finally(() => {
                 setIsLoading(false);
@@ -43,21 +46,40 @@ const Shop = () => {
         setIsDrawerOpen((prev) => !prev);
     };
 
+    const handleFilterChange = (categories: Category[]) => {
+        if (!categories.length) {
+            setFilteredProducts(products);
+            return;
+        }
+
+        const newProducts = products.reduce((acc, item) => {
+            return categories.includes(item.category) ? [...acc, item] : acc;
+        }, [] as IProductItem[]);
+
+        setFilteredProducts(newProducts);
+    };
+
     const getSelectedProductsCount = () => {
         return selectedProductsIds?.length;
     };
 
     return (
         <div>
-            <div className="flex flex-row">
-                <h2 className="mb-10 text-2xl mr-auto">Products</h2>
+            <div className="flex flex-row mb-5">
+                <h2 className="text-2xl mr-auto">
+                    <FormattedMessage id="tr_products" />
+                </h2>
 
                 <CartButton count={getSelectedProductsCount()} onCartOpen={handleDrawerToggle} />
             </div>
 
+            <div className="flex flex-row mb-3">
+                <Filter categories={categories} onFilterChange={handleFilterChange} />
+            </div>
+
             <Spin spinning={isLoading}>
                 <div className="grid grid-cols-1 gap-y-20 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 min-h-screen">
-                    {products.map(({ id, title, image, price, description }) => (
+                    {filteredProducts.map(({ id, title, image, price, description, category }) => (
                         <ProductItem
                             key={id}
                             id={id}
@@ -65,6 +87,7 @@ const Shop = () => {
                             image={image}
                             price={price}
                             description={description}
+                            category={category}
                             isAdded={!!selectedProductsIds.includes(id)}
                             onProductAdd={handleProductAdd(id)}
                         />
