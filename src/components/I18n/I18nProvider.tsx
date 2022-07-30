@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, ReactElement } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { IntlProvider } from 'react-intl';
 
 import { I18nContext } from './Context';
@@ -7,7 +7,7 @@ import { defaultLocale } from './translationSettings';
 
 interface Props {
     locale: string;
-    children: ReactElement;
+    children: React.ReactNode;
 }
 
 const I18nProvider: React.FC<Props> = ({ locale, children }) => {
