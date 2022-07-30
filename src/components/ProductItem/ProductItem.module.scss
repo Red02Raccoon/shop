@@ -36,3 +36,7 @@
     @extend .button;
     @apply bg-slate-400 hover:bg-slate-600;
 }
+
+.category {
+    @apply mb-2 flex-shrink self-start;
+}

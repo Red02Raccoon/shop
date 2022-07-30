@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { Category } from 'common';
 import ProductItem from './ProductItem';
 
 describe('<ProductItem />', () => {
@@ -9,6 +10,7 @@ describe('<ProductItem />', () => {
         title: 'test',
         image: '/test/img-1.png',
         description: 'some-description',
+        category: Category.men,
         price: 12,
         isAdded: false,
         onProductAdd: jest.fn(),
