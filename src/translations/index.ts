@@ -15,6 +15,7 @@ export const translations: { [p: string]: {} } = {
         tr_electronics: 'Електроніка',
         tr_inCart: 'В кошику',
         tr_addToCart: 'До кошика',
+        tr_all: 'Всі товари',
     },
     en: {
         tr_myMessage: 'Today is {ts, date, ::yyyyMMdd}',
@@ -32,5 +33,6 @@ export const translations: { [p: string]: {} } = {
         tr_electronics: 'Electronics',
         tr_inCart: 'In Cart',
         tr_addToCart: 'Add to Cart',
+        tr_all: 'All',
     },
 };
