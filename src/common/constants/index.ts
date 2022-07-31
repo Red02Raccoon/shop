@@ -6,3 +6,16 @@ export const categories: ICategory[] = [
     { id: Category.jewelry, title: 'tr_jewelry', color: 'magenta' },
     { id: Category.electronics, title: 'tr_electronics', color: 'gold' },
 ];
+
+export const defaultLocale = 'en';
+
+export const languages = [
+    {
+        key: 'uk',
+        label: 'Українська',
+    },
+    {
+        key: 'en',
+        label: 'English',
+    },
+];

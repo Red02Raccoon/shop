@@ -3,7 +3,8 @@ import { Button, Dropdown, Menu, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 
-import { useI18n, languages, defaultLocale } from '../I18n';
+import { defaultLocale, languages } from 'common';
+import { useI18n } from 'context';
 
 const LanguageToggle = () => {
     const { currentLanguage, updateLanguage } = useI18n();

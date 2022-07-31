@@ -1,9 +1,9 @@
 import { useState, useMemo, useCallback } from 'react';
 import { IntlProvider } from 'react-intl';
 
-import { I18nContext } from './Context';
-import { translations } from './translations';
-import { defaultLocale } from './translationSettings';
+import { defaultLocale } from 'common';
+import { TranslationProvider } from 'context';
+import { translations } from 'translations';
 
 interface Props {
     locale: string;
@@ -28,7 +28,7 @@ const I18nProvider: React.FC<Props> = ({ locale, children }) => {
     );
 
     return (
-        <I18nContext.Provider value={value}>
+        <TranslationProvider value={value}>
             <IntlProvider
                 locale={currentLanguage}
                 defaultLocale={defaultLocale}
@@ -36,7 +36,7 @@ const I18nProvider: React.FC<Props> = ({ locale, children }) => {
             >
                 {children}
             </IntlProvider>
-        </I18nContext.Provider>
+        </TranslationProvider>
     );
 };
 
