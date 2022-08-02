@@ -1,34 +1,18 @@
-import { ReactNode } from 'react';
-import { Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
-
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { renderComponent as render } from 'utils';
 import Header from './Header';
-
-const renderWithRouter = (component: ReactNode) => {
-    const history = createMemoryHistory();
-
-    return {
-        ...render(
-            <Router location={history.location} navigator={history}>
-                {component}
-            </Router>
-        ),
-        history,
-    };
-};
 
 describe('<Header/>', () => {
     it('should display correct logo text', () => {
-        renderWithRouter(<Header />);
+        render(<Header />);
 
-        expect(screen.getByTestId('logo').textContent).toEqual('Header');
+        expect(screen.getByTestId('logo').textContent).toEqual('Logo');
     });
 
     it('should navigate to root page after pressing logo', async () => {
-        const { history } = renderWithRouter(<Header />);
+        const { history } = render(<Header />);
 
         await userEvent.click(screen.getByTestId('logo'));
 
