@@ -1,1 +1,1 @@
-export { renderComponent } from './testing';
+export { renderComponent, flushPromises } from './testing';

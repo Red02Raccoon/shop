@@ -6,6 +6,7 @@ import { createMemoryHistory } from 'history';
 import { render } from '@testing-library/react';
 
 import { translations } from 'translations';
+import { resolve } from 'path';
 
 const defaultLocale = 'en';
 const cache = createIntlCache();
@@ -33,3 +34,5 @@ export const renderComponent = (component: ReactNode) => {
         history,
     };
 };
+
+export const flushPromises = (ms = 0) => new Promise((resolve) => setTimeout(resolve, ms));
