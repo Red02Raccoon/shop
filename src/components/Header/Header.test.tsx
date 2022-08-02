@@ -18,4 +18,10 @@ describe('<Header/>', () => {
 
         expect(history.location.pathname).toBe('/');
     });
+
+    it('Logo should match the snapshot', () => {
+        render(<Header />);
+
+        expect(screen.getByTestId('logo')).toMatchSnapshot();
+    });
 });
