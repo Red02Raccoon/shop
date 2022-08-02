@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header/> Logo el should match the snapshot 1`] = `
+exports[`<Header/> Logo should match the snapshot: additional snapshot description 1`] = `
 <div
   class="logo items-center"
   data-testid="logo"

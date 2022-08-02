@@ -1,5 +1,6 @@
 1. https://testing-library.com/docs/
  - /*istanbul ignore file */
+ - .toMatchSnapshot('title')
  
 2. https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
  - // @ts-ignore

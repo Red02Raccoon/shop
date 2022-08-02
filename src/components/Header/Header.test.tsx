@@ -22,6 +22,6 @@ describe('<Header/>', () => {
     it('Logo should match the snapshot', () => {
         render(<Header />);
 
-        expect(screen.getByTestId('logo')).toMatchSnapshot();
+        expect(screen.getByTestId('logo')).toMatchSnapshot('additional snapshot description');
     });
 });
