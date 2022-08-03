@@ -45,12 +45,19 @@ exports[`CartItem should match the snapshot 1`] = `
           class="flex"
         >
           <button
+            aria-describedby="description-remove"
             class="font-medium text-indigo-600 hover:text-indigo-500"
             data-testid="remove-button"
             type="button"
           >
             Remove
           </button>
+          <div
+            class="hidden"
+            id="description-remove"
+          >
+            You can reduce quantity of products
+          </div>
         </div>
       </div>
     </div>

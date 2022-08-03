@@ -26,9 +26,13 @@ const CartItem: React.FC<IProductItem> = ({ id, title, image, price }) => {
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                             data-testid="remove-button"
+                            aria-describedby="description-remove"
                         >
                             Remove
                         </button>
+                        <div id="description-remove" className="hidden">
+                            You can reduce quantity of products
+                        </div>
                     </div>
                 </div>
             </div>

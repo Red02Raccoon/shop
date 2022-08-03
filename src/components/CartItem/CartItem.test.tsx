@@ -27,6 +27,27 @@ describe('CartItem', () => {
         expect(button3).toBeVisible();
     });
 
+    it('should contain correct description for Remove button', () => {
+        render(<CartItem {...props} />);
+
+        expect(
+            screen.getByRole('button', {
+                name: 'Remove',
+                description: 'You can reduce quantity of products',
+            })
+        ).toBeInTheDocument();
+    });
+
+    it('should update title if prop is changed - rerender', () => {
+        const { rerender } = render(<CartItem {...props} />);
+
+        rerender(<CartItem {...props} title={'test rerender function'} />);
+
+        expect(screen.getByRole('heading', { level: 3 }).textContent?.trim()).toEqual(
+            'test rerender function'
+        );
+    });
+
     it('should match the snapshot', () => {
         const { asFragment } = render(<CartItem {...props} />);
 
