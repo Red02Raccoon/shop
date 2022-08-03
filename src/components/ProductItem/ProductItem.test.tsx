@@ -41,21 +41,22 @@ describe('<ProductItem />', () => {
         expect(props.onProductAdd).toHaveBeenCalledTimes(1);
     });
 
-    it('should handle onClick - 2', () => {
+    it('should handle onClick - 2', async () => {
+        const user = userEvent.setup();
         render(<ProductItem {...props} />);
 
-        const button = screen.getByRole('button');
-        userEvent.click(button);
+        await user.click(screen.getByRole('button'));
 
         expect(props.onProductAdd).toHaveBeenCalledTimes(1);
     });
 
-    it('should set focus on button', () => {
+    it('should set focus on button', async () => {
+        const user = userEvent.setup();
         render(<ProductItem {...props} />);
 
         expect(screen.getByRole('button')).not.toHaveFocus();
 
-        userEvent.tab();
+        await user.tab();
 
         expect(screen.getByRole('button')).toHaveFocus();
     });
