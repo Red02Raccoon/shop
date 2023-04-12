@@ -1,4 +1,5 @@
 import { Button, Result } from 'antd';
+import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
 
 const PageNotFound = () => {
@@ -13,10 +14,10 @@ const PageNotFound = () => {
             className="my-auto"
             status="404"
             title="404"
-            subTitle="Sorry, the page you visited does not exist."
+            subTitle={<FormattedMessage id="tr_404Description" />}
             extra={
                 <Button type="primary" onClick={handleBackHome}>
-                    Back Home
+                    <FormattedMessage id="tr_backHome" />
                 </Button>
             }
         />

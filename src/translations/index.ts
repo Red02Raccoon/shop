@@ -16,6 +16,8 @@ export const translations: { [p: string]: {} } = {
         tr_inCart: 'В кошику',
         tr_addToCart: 'До кошика',
         tr_all: 'Всі товари',
+        tr_backHome: 'На головну сторінку',
+        tr_404Description: 'Вибачте, я не можу знайти таку сторінку.',
     },
     en: {
         tr_myMessage: 'Today is {ts, date, ::yyyyMMdd}',
@@ -34,5 +36,7 @@ export const translations: { [p: string]: {} } = {
         tr_inCart: 'In Cart',
         tr_addToCart: 'Add to Cart',
         tr_all: 'All',
+        tr_backHome: 'Back Home',
+        tr_404Description: 'Sorry, the page you visited does not exist.',
     },
 };

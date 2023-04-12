@@ -18,7 +18,7 @@ type TagType = Category | typeof allTag;
 const Filter: React.FC<Props> = ({ categories, onFilterChange }) => {
     const [selectedTags, setSelectedTags] = useState<Category[]>([]);
 
-    const handleChange = (tag: TagType, checked: boolean) => {
+    const handleChange = (tag: TagType) => (checked: boolean) => {
         if (tag === allTag) {
             setSelectedTags([]);
             onFilterChange([]);
@@ -43,7 +43,7 @@ const Filter: React.FC<Props> = ({ categories, onFilterChange }) => {
             <CheckableTag
                 key={allTag}
                 checked={!selectedTags.length}
-                onChange={(checked) => handleChange(allTag, checked)}
+                onChange={handleChange(allTag)}
             >
                 <FormattedMessage id="tr_all" />
             </CheckableTag>
@@ -53,7 +53,7 @@ const Filter: React.FC<Props> = ({ categories, onFilterChange }) => {
                     <CheckableTag
                         key={id}
                         checked={selectedTags.indexOf(id) > -1}
-                        onChange={(checked) => handleChange(id, checked)}
+                        onChange={handleChange(id)}
                     >
                         <FormattedMessage id={title} />
                     </CheckableTag>
