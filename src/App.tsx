@@ -4,11 +4,9 @@ import { FormattedMessage } from 'react-intl';
 import { PageNotFound, Shop, Home } from 'pages';
 import { I18nProvider } from 'components';
 
-const locale = 'en';
-
 const App = () => {
     return (
-        <I18nProvider locale={locale}>
+        <I18nProvider>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />}>

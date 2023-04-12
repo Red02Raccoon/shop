@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
 import { Spin } from 'antd';
+import { FormattedMessage } from 'react-intl';
 
 import { ProductItem, CartDrawer, CartButton, Filter } from 'components';
 import { IProductItem, categories, Category } from 'common';
-import { FormattedMessage } from 'react-intl';
+import { loadOrder, saveOrder } from 'services';
 
 const Shop = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -29,6 +30,18 @@ const Shop = () => {
             });
     }, []);
 
+    useEffect(() => {
+        loadOrder()
+            .then((result) => {
+                console.log('result', { result });
+                setSelectedProductsIds(result);
+            })
+            .catch((e) => {
+                console.log(e.message);
+                setSelectedProductsIds([]);
+            });
+    }, []);
+
     const handleProductAdd = (id: number) => () => {
         const newData = [...selectedProductsIds];
         const index = selectedProductsIds.indexOf(id);
@@ -40,6 +53,7 @@ const Shop = () => {
         }
 
         setSelectedProductsIds(newData);
+        saveOrder(newData);
     };
 
     const handleDrawerToggle = () => {
