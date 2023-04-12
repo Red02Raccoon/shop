@@ -1,20 +1,29 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { IntlProvider } from 'react-intl';
 
 import { defaultLocale } from 'common';
 import { TranslationProvider } from 'context';
 import { translations } from 'translations';
+import { saveSettings, loadSettings } from 'services';
 
 interface Props {
-    locale: string;
     children: React.ReactNode;
 }
 
-const I18nProvider: React.FC<Props> = ({ locale, children }) => {
-    const [currentLanguage, setCurrentLanguage] = useState(locale || defaultLocale);
+const I18nProvider: React.FC<Props> = ({ children }) => {
+    const [currentLanguage, setCurrentLanguage] = useState(defaultLocale);
+
+    useEffect(() => {
+        loadSettings()
+            .then(({ lang }) => {
+                setCurrentLanguage(lang || defaultLocale);
+            })
+            .catch((e) => console.log(e.message));
+    }, []);
 
     const updateLanguage = useCallback((lang: string) => {
         setCurrentLanguage(lang);
+        saveSettings({ lang });
 
         return lang;
     }, []);
