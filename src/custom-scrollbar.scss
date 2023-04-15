@@ -1,0 +1,81 @@
+$scrollbar-width: 32px;
+$thumb-width: 20px;
+
+$track-color: rgb(53, 103, 117);
+$thumb-color: rgb(176, 190, 186);
+
+$track-radius: $scrollbar-width;
+$thumb-radius: $thumb-width;
+$thumb-margin: ($scrollbar-width - $thumb-width) / 2;
+
+/* Works on Chrome, Edge, and Safari */
+.with-custom-scrollbar {
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+
+    &-track {
+      background-color: $track-color;
+      background-clip: padding-box;
+      // border:5px solid transparent;
+      // background-clip: border-box;
+    }
+    
+    &-thumb {
+      background-color: $thumb-color;
+      // box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+      border-radius: $thumb-width;
+      border: $thumb-margin solid $track-color;
+      
+      &:hover {
+        // background-color: #5749d2;
+      }
+    }
+    
+    &-corner {
+      display: none;
+    }
+    
+    &-button {
+      display: block; // display all buttons (2 for up + 2 for down)
+      background-color: $track-color;
+      height: 25px;
+      
+      // up button in the vertical scrollbar, contains 2 buttons
+      &:vertical:start{
+        border-top-left-radius: $scrollbar-width;
+        border-top-right-radius: $scrollbar-width;
+        
+        &:decrement {
+        background-position: center center;
+        background-repeat: no-repeat;
+        // background-size: 70%;
+        // background-image: url('');
+      }
+
+      &:increment {
+        display: none;
+      }
+    }
+    
+
+    // down button in the vertical scrollbar, contains 2buttons
+    &:vertical:end {
+        border-bottom-left-radius: $scrollbar-width;
+        border-bottom-right-radius: $scrollbar-width;
+
+        &:decrement {
+          display: none;
+        }
+
+        &:increment {
+          background-position: center center;
+          background-repeat: no-repeat;
+        //   background-image: url('');
+        }
+      }
+    }
+  }
+}
