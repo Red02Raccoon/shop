@@ -1,8 +1,8 @@
-import { Drawer } from 'antd';
 import React, { FC } from 'react';
-import { CartItem } from '../CartItem';
+import { Drawer } from 'antd';
 
 import { IProductItem } from '../../common/types';
+import { CartItem } from '../CartItem';
 
 interface IProps {
     isOpen: boolean;

@@ -1,81 +1,97 @@
-$scrollbar-width: 32px;
-$thumb-width: 20px;
+$scrollbar-width: 25px;
+$thumb-width: 15px;
+$space: 10px;
 
 $track-color: rgb(53, 103, 117);
 $thumb-color: rgb(176, 190, 186);
 
-$track-radius: $scrollbar-width;
+$c-width: $scrollbar-width + $space * 2;
+$track-radius: $c-width;
 $thumb-radius: $thumb-width;
-$thumb-margin: ($scrollbar-width - $thumb-width) / 2;
+$thumb-margin: ($c-width - $thumb-width) / 2;
 
 /* Works on Chrome, Edge, and Safari */
 .with-custom-scrollbar {
-  overflow-y: auto;
-  overflow-x: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 
-  &::-webkit-scrollbar {
-    width: $scrollbar-width;
+    &::-webkit-scrollbar {
+        width: $c-width;
 
-    &-track {
-      background-color: $track-color;
-      background-clip: padding-box;
-      // border:5px solid transparent;
-      // background-clip: border-box;
-    }
-    
-    &-thumb {
-      background-color: $thumb-color;
-      // box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
-      border-radius: $thumb-width;
-      border: $thumb-margin solid $track-color;
-      
-      &:hover {
-        // background-color: #5749d2;
-      }
-    }
-    
-    &-corner {
-      display: none;
-    }
-    
-    &-button {
-      display: block; // display all buttons (2 for up + 2 for down)
-      background-color: $track-color;
-      height: 25px;
-      
-      // up button in the vertical scrollbar, contains 2 buttons
-      &:vertical:start{
-        border-top-left-radius: $scrollbar-width;
-        border-top-right-radius: $scrollbar-width;
-        
-        &:decrement {
-        background-position: center center;
-        background-repeat: no-repeat;
-        // background-size: 70%;
-        // background-image: url('');
-      }
-
-      &:increment {
-        display: none;
-      }
-    }
-    
-
-    // down button in the vertical scrollbar, contains 2buttons
-    &:vertical:end {
-        border-bottom-left-radius: $scrollbar-width;
-        border-bottom-right-radius: $scrollbar-width;
-
-        &:decrement {
-          display: none;
+        &-track {
+            background-color: $track-color;
+            background-clip: padding-box;
+            border: $space solid transparent;
+            background-clip: padding-box;
+            border-top-width: 0;
+            border-bottom-width: 0;
         }
 
-        &:increment {
-          background-position: center center;
-          background-repeat: no-repeat;
-        //   background-image: url('');
+        &-thumb {
+            background-color: $thumb-color;
+            box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+            border-radius: $c-width;
+            border: $thumb-margin solid transparent;
+            background-clip: padding-box;
+
+            &:hover {
+                // background-color: #5749d2;
+            }
         }
-      }
+
+        &-corner {
+            display: none;
+        }
+
+        &-button {
+            display: block; // display all buttons (2 for up + 2 for down)
+            background-color: $track-color;
+            border: $space solid transparent;
+            background-clip: padding-box;
+
+            height: 30px;
+
+            // up button in the vertical scrollbar, contains 2 buttons
+            &:vertical:start {
+                border-top-left-radius: $c-width;
+                border-top-right-radius: $c-width;
+
+                border-bottom-width: 0;
+
+                &:decrement {
+                    background-position: center bottom;
+                    background-repeat: no-repeat;
+                    background-size: 65%;
+                    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='13' viewBox='0 0 22 13' fill='none'><path d='M20 11L11 2L2 11' stroke='rgb(176, 190, 186)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+                }
+
+                &:increment {
+                    display: none;
+                }
+            }
+
+            // down button in the vertical scrollbar, contains 2buttons
+            &:vertical:end {
+                border-bottom-left-radius: $c-width;
+                border-bottom-right-radius: $c-width;
+
+                border-top-width: 0;
+
+                &:decrement {
+                    display: none;
+                }
+
+                &:increment {
+                    background-position: center top;
+                    background-repeat: no-repeat;
+                    background-size: 65%;
+                    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='13' viewBox='0 0 22 13' fill='none'><path d='M2 2L11 11L20 2' stroke='rgb(176, 190, 186)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+                }
+            }
+        }
     }
-  }
+}
+
+.ant-drawer-body {
+    @extend .with-custom-scrollbar;
 }
