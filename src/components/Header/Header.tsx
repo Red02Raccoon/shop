@@ -23,7 +23,7 @@ const Header: React.FC<Props> = ({ styles }) => {
 
     return (
         <div className={customStyles.header} style={styles}>
-            <div className="logo items-center" data-testid="logo" onClick={handleLogoClick}>
+            <div className={customStyles.logo} data-testid="logo" onClick={handleLogoClick}>
                 <FormattedMessage id="tr_logo" />
             </div>
 

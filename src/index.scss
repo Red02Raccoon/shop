@@ -1,4 +1,6 @@
-@import './custom-scrollbar.scss';
+@import './styles/_variables.scss';
+@import './styles/_mixins.scss';
+@import './styles/custom-scrollbar.scss';
 /* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
@@ -11,4 +13,8 @@
 
 .lang-button {
     margin-left: auto;
+
+    @include test($primary-color, '.ant-space-item') {
+        font-size: 16px;
+    }
 }

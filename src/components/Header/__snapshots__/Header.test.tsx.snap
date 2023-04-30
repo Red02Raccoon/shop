@@ -2,7 +2,7 @@
 
 exports[`<Header/> Logo should match the snapshot: additional snapshot description 1`] = `
 <div
-  class="logo items-center"
+  class="logo"
   data-testid="logo"
 >
   Logo

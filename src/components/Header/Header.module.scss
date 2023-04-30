@@ -1,3 +1,11 @@
+@import 'styles/_variables.scss';
+
 .header {
     @apply flex justify-between items-center py-4 px-8 border-slate-100 border-b-2 bg-white fixed w-full top-0 left-0 z-10;
+}
+
+.logo {
+    background: $primary-color;
+    color: #fff;
+    padding: 10px;
 }
