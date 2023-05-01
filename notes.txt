@@ -13,6 +13,12 @@
 
 4. https://reactrouter.com/docs/en/v6
 
+5. https://sass-lang.com/
+    - variables;
+    - mixins, include;
+    - interpolation;
+
+
 
 // React + ts
 
