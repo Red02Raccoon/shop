@@ -10,6 +10,12 @@ $track-radius: $c-width;
 $thumb-radius: $thumb-width;
 $thumb-margin: ($c-width - $thumb-width) / 2;
 
+$arrow-color: $thumb-color;
+
+$up-arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='13' viewBox='0 0 22 13' fill='none'><path d='M20 11L11 2L2 11' stroke='#{$arrow-color}' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>";
+
+$down-arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='13' viewBox='0 0 22 13' fill='none'><path d='M2 2L11 11L20 2' stroke='#{$arrow-color}' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>";
+
 /* Works on Chrome, Edge, and Safari */
 .with-custom-scrollbar {
     overflow-y: auto;
@@ -62,7 +68,7 @@ $thumb-margin: ($c-width - $thumb-width) / 2;
                     background-position: center bottom;
                     background-repeat: no-repeat;
                     background-size: 65%;
-                    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='13' viewBox='0 0 22 13' fill='none'><path d='M20 11L11 2L2 11' stroke='rgb(176, 190, 186)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+                    background-image: url($up-arrow);
                 }
 
                 &:increment {
@@ -85,7 +91,7 @@ $thumb-margin: ($c-width - $thumb-width) / 2;
                     background-position: center top;
                     background-repeat: no-repeat;
                     background-size: 65%;
-                    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='13' viewBox='0 0 22 13' fill='none'><path d='M2 2L11 11L20 2' stroke='rgb(176, 190, 186)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+                    background-image: url($down-arrow);
                 }
             }
         }

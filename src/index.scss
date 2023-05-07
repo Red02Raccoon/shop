@@ -1,5 +1,6 @@
 @import './styles/_variables.scss';
 @import './styles/_mixins.scss';
+@import './styles/_functions.scss';
 @import './styles/custom-scrollbar.scss';
 /* @tailwind base; */
 @tailwind components;
@@ -13,8 +14,21 @@
 
 .lang-button {
     margin-left: auto;
+    font-weight: weight(bold);
 
     @include test($primary-color, '.ant-space-item') {
-        font-size: 16px;
+        font-size: 12px;
+    }
+
+    transition: {
+        property: font-size;
+        duration: 4s;
+        delay: 2s;
+    }
+
+    &:hover {
+        .ant-space-item {
+            font-size: 16px;
+        }
     }
 }

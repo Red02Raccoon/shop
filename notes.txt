@@ -14,9 +14,12 @@
 4. https://reactrouter.com/docs/en/v6
 
 5. https://sass-lang.com/
-    - variables;
+    - variables (... + array, map);
     - mixins, include;
+    - functions;
     - interpolation;
+    - extend;
+    - 
 
 
 
