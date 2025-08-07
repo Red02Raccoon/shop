@@ -14,6 +14,12 @@ const navConfig = [
         translation: 'tr_test',
         link: '/test',
     },
+    {
+        id: 'activity',
+        title: 'Activity',
+        translation: 'tr_activity',
+        link: '/activity',
+    },
 ];
 
 const NavBar = () => {

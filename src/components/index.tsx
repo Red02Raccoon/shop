@@ -5,4 +5,5 @@ export { CartDrawer } from './CartDrawer';
 export { CartButton } from './CartButton';
 export { I18nProvider } from './I18n';
 export { Filter } from './Filter';
+export { SentenceToWords } from './Sentence';
 export { withLog } from './hoc';

@@ -18,6 +18,7 @@ export const translations: { [p: string]: {} } = {
         tr_all: 'Всі товари',
         tr_backHome: 'На головну сторінку',
         tr_404Description: 'Вибачте, я не можу знайти таку сторінку.',
+        tr_activity: 'Розвага',
     },
     en: {
         tr_myMessage: 'Today is {ts, date, ::yyyyMMdd}',
@@ -38,5 +39,6 @@ export const translations: { [p: string]: {} } = {
         tr_all: 'All',
         tr_backHome: 'Back Home',
         tr_404Description: 'Sorry, the page you visited does not exist.',
+        tr_activity: 'Activity',
     },
 };
