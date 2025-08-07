@@ -1,8 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { PageNotFound, Shop, Home } from 'pages';
+import { PageNotFound, Shop, Home, Welcome, Activity } from 'pages';
 import { I18nProvider } from 'components';
-import Welcome from 'pages/Welcome/Welcome';
 
 const App = () => {
     return (
@@ -12,6 +11,7 @@ const App = () => {
                     <Route path="/" element={<Home />}>
                         <Route index element={<Welcome />} />
                         <Route path="/shop" element={<Shop />} />
+                        <Route path="/activity" element={<Activity />} />
                     </Route>
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
