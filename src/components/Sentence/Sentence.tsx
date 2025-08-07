@@ -1,9 +1,5 @@
 import React from 'react';
 
-/**
- * add a component that will accept a sentence and display it as a list of separate words
- * Each word is styled to look like a small button
- */
 type SentenceToWordsProps = {
     sentence: string;
 };
