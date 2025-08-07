@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
 
 import { PageNotFound, Shop, Home } from 'pages';
 import { I18nProvider } from 'components';
+import Welcome from 'pages/Welcome/Welcome';
 
 const App = () => {
     return (
@@ -10,25 +10,7 @@ const App = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />}>
-                        <Route
-                            index
-                            element={
-                                <main style={{ padding: '1rem' }}>
-                                    <p>
-                                        <FormattedMessage id="tr_selectPage" />
-                                    </p>
-
-                                    <FormattedMessage
-                                        id="tr_myMessage"
-                                        values={{ ts: Date.now() }}
-                                    />
-
-                                    <p>
-                                        <FormattedMessage id="tr_description" />
-                                    </p>
-                                </main>
-                            }
-                        />
+                        <Route index element={<Welcome />} />
                         <Route path="/shop" element={<Shop />} />
                     </Route>
                     <Route path="*" element={<PageNotFound />} />
